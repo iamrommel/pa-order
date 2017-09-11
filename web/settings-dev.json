@@ -1,8 +1,0 @@
-{
-  "public": {
-    "googleMapsApi": "AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo",
-    "GOOGLE_API_KEY": "AIzaSyBSQUglF-FLjzkj3YJ49dplKioerln1VeM"
-
-  },
-  "MONGO_URL": "mongodb://localhost:3001/meteor"
-}

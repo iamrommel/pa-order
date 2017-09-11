@@ -1,1 +1,0 @@
-npm update pcmli.umbrella.core pcmli.umbrella.web-ui --save
