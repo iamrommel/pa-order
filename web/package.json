@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "server": "node ./bin/www",
     "client": "node start-client.js",
-    "heroku-postbuild": "cd client && npm install --only=prod && npm install && npm run build",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "deploy": "publish.sh"
   },
