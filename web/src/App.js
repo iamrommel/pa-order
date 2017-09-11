@@ -4,6 +4,9 @@ import './App.css';
 
 class App extends Component {
   render() {
+
+    console.log('some shit happens')
+
     return (
       <div className="App">
         <div className="App-header">
