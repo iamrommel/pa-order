@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "sdkVersion": "20.0.0",
+    "name": "i lab YO",
+    "slug": "i-lab-yo",
+    "icon": "./assets/icons/app.png",
+    "loading": {
+      "icon": "./assets/icons/loading.png",
+      "hideExponentText": true
+    }
+  }
+}
