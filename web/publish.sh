@@ -21,11 +21,7 @@ confirm Are you sure you want to deploy?
     version=$(npm version patch)
     echo $version
 
-    git init
-    git add .
-    git commit -m "Deployed $version to Heroku"
-    git push --set-upstream git@heroku.com:pa-order.git master -f
-    rm -fr .git
+    git subtree push --prefix web heroku master
 
     git commit -a -m "Created tags and Deployed $version"
     git tag "$version"
