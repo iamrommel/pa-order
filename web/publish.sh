@@ -20,7 +20,7 @@ confirm Are you sure you want to deploy?
  then
     version=$(npm version patch)
     echo $version
-
+    cd ..
     git subtree push --prefix web heroku master
 
     git commit -a -m "Created tags and Deployed $version"
