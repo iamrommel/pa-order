@@ -24,7 +24,7 @@ confirm Are you sure you want to deploy?
     git init
     git add .
     git commit -m "Deployed $version to Heroku"
-    git push git@heroku.com:pa-order.git -f
+    git push --set-upstream git@heroku.com:pa-order.git master -f
     rm -fr .git
 
     git commit -a -m "Created tags and Deployed $version"
