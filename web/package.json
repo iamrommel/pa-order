@@ -1,12 +1,13 @@
 {
   "name": "web",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server" : "node ./bin/www",
-    "client": "node start-client.js"
-
+    "start": "node ./bin/www",
+    "server": "node ./bin/www",
+    "client": "node start-client.js",
+    "heroku-postbuild": "cd client && yarn --production=false && yarn run build",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "dependencies": {
     "body-parser": "~1.17.1",

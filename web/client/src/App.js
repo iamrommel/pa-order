@@ -25,13 +25,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo"/>
           <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
 
         {
           users.map((user, i) => {
-            return <p key={i}>{user.name} --> {user.age}</p>
+            return <p key={i}>{user.name} with age of {user.age}</p>
           })
 
         }
