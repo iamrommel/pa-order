@@ -1,6 +1,6 @@
-import { Mongo } from 'meteor/mongo'
 import GraphQLDate from 'graphql-date'
 import _ from 'lodash'
+import { makeExecutableSchema } from 'graphql-tools'
 import {
   historyTypeDef,
   addressTypeDef, AddressModel,
@@ -9,6 +9,8 @@ import {
   userTypeDef, userQueryDef, userMutationTypeDef, userResolvers, UserModel,
   tenantTypeDef, tenantQueryDef, tenantMutationDef, tenantResolvers, TenantModel
 } from 'pcmli.umbrella.backend'
+import mongoose, {Schema} from 'mongoose'
+
 
 export const commonTypeDef = [`
 scalar Date
@@ -50,7 +52,8 @@ let commonResolvers = {
 
 }
 
-commonResolvers = _.merge({}, commonResolvers,
+commonResolvers = _.merge({},
+  commonResolvers,
   tenantResolvers,
   userResolvers,
 )
@@ -62,13 +65,40 @@ const addressModel = new AddressModel()
 const contactModel = new ContactModel({addressModel})
 
 //TODO: pass the collection itself
-export const tenantCollection = new Mongo.Collection('tenants')
-export const userCollection = new Mongo.Collection('users')
+const tenantSchema = new Schema({}, {strict: false})
+export const tenantCollection = {
+  model : mongoose.model('tenant', tenantSchema)
+}
+export const userCollection = {}
 
 export const commonContext = {
   TenantModel: new TenantModel({collection: tenantCollection}),
-  UserModel: new UserModel({meteor: {}, accounts: {}}),
+  UserModel: new UserModel({meteor: {}, accounts: {}, collection: userCollection}),
   ImageModel: new ImageModel(),
   AddressModel: addressModel,
   ContactModel: contactModel
 }
+
+const queries = [`type Query {
+  ${commonQueryDef}
+}`]
+
+const mutations = [`type Mutation {
+  ${commonMutationDef}
+}`
+]
+
+const typeDefs = [...commonTypeDef, ...queries, ...mutations ]
+const resolvers = _.merge(commonResolvers)
+
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+})
+
+const context = {
+  ...commonContext,
+}
+
+
+
