@@ -1,5 +1,8 @@
 import _ from 'lodash'
 import { makeExecutableSchema } from 'graphql-tools'
+import bodyParser from 'body-parser'
+import { graphqlExpress } from 'apollo-server-express'
+
 import { commonResolvers, commonTypeDef, commonMutationDef, commonQueryDef, commonContext } from './graphql'
 
 //import the models because they are the context
@@ -13,7 +16,7 @@ const mutations = [`type Mutation {
 }`
 ]
 
-const typeDefs = [...commonTypeDef, ...queries, ...mutations ]
+const typeDefs = [...commonTypeDef, ...queries, ...mutations]
 const resolvers = _.merge(commonResolvers)
 
 const schema = makeExecutableSchema({
@@ -25,7 +28,7 @@ const context = {
   ...commonContext,
 }
 
-createApolloServer({
-  schema,
-  context
-})
+export const setupGraphql = ({app}) => {
+  app.use('/graphql', bodyParser.json(), graphqlExpress({schema, context}))
+}
+
