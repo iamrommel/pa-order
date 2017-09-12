@@ -10,6 +10,9 @@ var users = require('./routes/users');
 
 var app = express();
 
+//graphql settings
+
+
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
