@@ -20,4 +20,4 @@ export { LogoManager } from './LogoManager'
 export {LoginButton} from './LoginButton'
 export {LogoutButton, LogoutText} from './Logout'
 export {UserDisplay} from './UserDisplay'
-
+export {CopyrightNotice} from './CopyrightNotice'

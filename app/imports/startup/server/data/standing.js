@@ -10,22 +10,13 @@ Migrations.add({
     //region login service configuration
     const loginServiceConfig = [
       {
-        '_id': '3nSkMJ8hTD3wTojjD',
-        'service': 'facebook',
-        'appId': '388536118173525',
-        'secret': 'd1245538417289b36dc568e880c1c2c5',
-        'loginStyle': 'popup'
-      },
-      {
         '_id': 'Rv4CjATra3Phj3HiJ',
         'service': 'google',
-        'clientId': '741004933388-fas0m0lp87lgc8l1unn7upmijc4q3tqt.apps.googleusercontent.com',
-        'secret': 'hA5OfyyUrLJa3ygjqJWy4Pw3',
+        'clientId': '419803053399-ios1qqd1gofaq5oe06phbshllvov2op2.apps.googleusercontent.com',
+        'secret': 'fHGPHcbjtOhDYGU3ZOzz-CyX',
         'loginStyle': 'popup'
       }
     ]
-
-
 
     const collection = ServiceConfiguration.configurations._collection
     collection.remove({})
@@ -42,8 +33,8 @@ Migrations.add({
       },
       {
         '_id': 'werGGyKFupyH3h1dW',
-        'code': 'COS',
-        'name': 'Chamber of Secrets'
+        'code': 'ILY',
+        'name': 'I Lab Yo!'
       }]
     tenantModel.collection.rawCollection().remove({})
     tenantModel.collection.rawCollection().insertMany(tenants)
