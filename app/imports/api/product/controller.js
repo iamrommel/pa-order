@@ -24,4 +24,10 @@ export class ProductController {
     return await ProductModel.create(document)
   }
 
+  getAll = async ({filter, options, projection}) => {
+    filter = Utils.filterToObject(filter)
+    options = Utils.optionsToObject(options)
+    return await ProductModel.find(filter, projection, options).exec()
+  }
+
 }

@@ -1,7 +1,7 @@
 import { ProductController } from './controller'
 
 export const ProductQuery = `
-  allProducts(filter: String, options: String): [Product]
+  allProducts(filter: String, options: String, projection : String): [Product]
 `
 
 export const ProductMutation = `
@@ -36,8 +36,8 @@ const productController = new ProductController()
 
 export const ProductResolvers = {
   Query: {
-    allProducts (root, args, context) {
-      //return context.ProductModel.find({args, context})
+    async allProducts (root, args, context) {
+      return await ProductController.getAll(args)
     },
   },
   Mutation: {

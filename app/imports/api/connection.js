@@ -4,7 +4,6 @@ import bluebird from 'bluebird'
 //import { Meteor } from 'meteor/meteor'
 import mockSettings from '../../settings-dev.json'
 
-console.log(Meteor, 'Meteor on conenction')
 
 let Meteor = Meteor || {settings: mockSettings}
 mongoose.Promise = bluebird

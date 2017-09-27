@@ -10,7 +10,6 @@ export class Model {
   }
 
   connection () {
-    console.log(this.connectionName, 'this.connectionName')
     if (this.connectionName) {
       return onCreateConnection(this.connectionName)
     }
