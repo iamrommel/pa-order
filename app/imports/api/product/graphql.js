@@ -26,7 +26,6 @@ input ProductInput {
 `]
 
 const productController = new ProductController()
-
 export const graphql = buildGraphql(productController)
 
 

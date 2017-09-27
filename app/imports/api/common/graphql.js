@@ -77,7 +77,6 @@ export const commonContext = {
 
 export const buildGraphql = (controller) => {
 
-  console.log(controller, "controllercontrollercontroller")
   const modelName = controller.modelName
   const query = `all${modelName}(filter: String, options: String, projection : String): [${modelName}]`
   const mutation = `

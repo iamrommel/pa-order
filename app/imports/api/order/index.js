@@ -1,3 +1,2 @@
-export { resolvers as customerResolver, typeDefs as customerTypeDef, query as customerQuery, mutation as customerMutation } from './graphql'
-export { CustomerModel } from './controller'
-
+export { OrderTypeDefs, graphql as OrderGraphql } from './graphql'
+export { OrderModel, OrderSchema, OrderController } from './controller'

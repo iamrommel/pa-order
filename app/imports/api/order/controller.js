@@ -19,6 +19,7 @@ export const OrderSchema = new Schema({
     type: Date,
     default: Date.now
   },
+  remarks : String,
   grossAmount: Number,
   discountAmount: Number,
   netAmount: Number,

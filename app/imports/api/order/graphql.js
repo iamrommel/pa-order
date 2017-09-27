@@ -1,12 +1,7 @@
-export const query = `
-  allOrders(filter: String, options: String): [Order]
-`
+import { buildGraphql } from '../common'
+import { OrderController } from './controller'
 
-export const mutation = `
-  mutateOrders(_id: String!, doc: String, _type : String) : Order
-`
-
-export const typeDefs = [`
+export const OrderTypeDefs = [`
 type OrderDetail {
   _id : String
   product : Product
@@ -16,24 +11,24 @@ type OrderDetail {
 }
 
 type Order {
-    _id : String,
+    _id : String
     code: String
     status: String
     tags : [String]
     remarks : String
-    _histories : [History],
+    timeStamp : Date
+    _histories : [History]
 }
-`]
+input OrderInput {
+    _id : String
+    code: String
+    status: String
+    timeStamp : Date
+    tags : [String]
+    remarks : String
+ }
+    
+ `]
 
-export const resolvers = {
-  Query: {
-    allOrders (root, args, context) {
-      return context.OrderModel.find({args, context})
-    },
-  },
-  Mutation: {
-    mutateOrders (root, args, context) {
-      return context.OrderModel.mutate({args, context})
-    },
-  }
-}
+const controller = new OrderController()
+export const graphql = buildGraphql(controller)
