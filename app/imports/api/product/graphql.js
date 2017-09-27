@@ -1,14 +1,5 @@
 import { ProductController } from './controller'
-
-export const ProductQuery = `
-  allProducts(filter: String, options: String, projection : String): [Product]
-`
-
-export const ProductMutation = `
-  createProduct(input : ProductInput!) : Product,
-  updateProduct(input : ProductInput!, filter: String) : Product,
-  deleteProduct(filter: String) : Product,
-`
+import { buildGraphql } from '../common'
 
 export const ProductTypeDefs = [`
 
@@ -36,22 +27,8 @@ input ProductInput {
 
 const productController = new ProductController()
 
-export const ProductResolvers = {
-  Query: {
-    async allProducts (root, args, context) {
-      return await productController.getAll(args)
-    },
-  },
-  Mutation: {
+export const graphql = buildGraphql(productController)
 
-    async createProduct (root, args, context) {
-      return await productController.create(args)
-    },
-    async updateProduct (root, args, context) {
-      return await productController.update(args)
-    },
-    async deleteProduct (root, args, context) {
-      return await productController.delete(args)
-    }
-  }
-}
+
+
+

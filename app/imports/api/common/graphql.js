@@ -61,7 +61,6 @@ commonResolvers = _.merge({}, commonResolvers,
   userResolvers,
 )
 
-
 export { commonResolvers }
 
 const addressModel = new AddressModel({googleApiKey: Meteor.settings.public.GOOGLE_API_KEY})
@@ -74,4 +73,39 @@ export const commonContext = {
   ImageModel: new ImageModel(),
   AddressModel: addressModel,
   ContactModel: contactModel
+}
+
+export const buildGraphql = (controller) => {
+
+  console.log(controller, "controllercontrollercontroller")
+  const modelName = controller.modelName
+  const query = `all${modelName}(filter: String, options: String, projection : String): [${modelName}]`
+  const mutation = `
+  create${modelName}(input : ${modelName}Input!) : ${modelName},
+  update${modelName}(input : ${modelName}Input!, filter: String) : ${modelName},
+  delete${modelName}(filter: String) : ${modelName},
+`
+
+  const resolvers = {
+    Query: {
+      async [`all${modelName}`] (root, args, context) {
+        return await controller.getAll(args)
+      },
+    },
+    Mutation: {
+
+      async [`create${modelName}`] (root, args, context) {
+        return await controller.create(args)
+      },
+      async [`update${modelName}`] (root, args, context) {
+        return await controller.update(args)
+      },
+      async [`delete${modelName}`] (root, args, context) {
+        return await controller.delete(args)
+      }
+    }
+  }
+
+  return {query, mutation, resolvers}
+
 }

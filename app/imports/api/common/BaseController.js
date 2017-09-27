@@ -10,7 +10,7 @@ export class BaseController {
       this.model = new Model(modelName, {schema})
     }
 
-    this.modeName = modelName
+    this.modelName = modelName
     this.schema = schema
   }
 

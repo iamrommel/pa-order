@@ -8,12 +8,12 @@ import { commonResolvers, commonTypeDef, commonMutationDef, commonQueryDef, comm
 
 //import the models because they are the context
 import { CustomerModel, customerCollection, customerModelName, customerMutation, customerQuery, customerResolver, customerTypeDef } from '../../../api/customer/'
-import { ProductMutation, ProductQuery, ProductResolvers, ProductTypeDefs } from '../../../api/product/'
+import { ProductGraphql, ProductTypeDefs } from '../../../api/product/'
 
 const queries = [`type Query {
   ${commonQueryDef}
   ${customerQuery}
-  ${ProductQuery}
+  ${ProductGraphql.query}
   
   
 }`]
@@ -21,13 +21,14 @@ const queries = [`type Query {
 const mutations = [`type Mutation {
   ${commonMutationDef}
   ${customerMutation}
-  ${ProductMutation}
+    ${ProductGraphql.mutation}
+
 }`
 ]
 
 const typeDefs = [...commonTypeDef, ...queries, ...mutations, ...customerTypeDef, ...ProductTypeDefs]
 
-const resolvers = _.merge(commonResolvers, customerResolver, ProductResolvers)
+const resolvers = _.merge(commonResolvers, customerResolver, ProductGraphql.resolvers)
 
 const schema = makeExecutableSchema({
   typeDefs,
