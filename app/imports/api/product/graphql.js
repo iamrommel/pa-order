@@ -5,7 +5,9 @@ export const ProductQuery = `
 `
 
 export const ProductMutation = `
-  createProduct(input : ProductInput!) : Product
+  createProduct(input : ProductInput!) : Product,
+  updateProduct(input : ProductInput!, filter: String) : Product,
+  deleteProduct(filter: String) : Product,
 `
 
 export const ProductTypeDefs = [`
@@ -37,14 +39,19 @@ const productController = new ProductController()
 export const ProductResolvers = {
   Query: {
     async allProducts (root, args, context) {
-      return await ProductController.getAll(args)
+      return await productController.getAll(args)
     },
   },
   Mutation: {
 
     async createProduct (root, args, context) {
-      return await productController.create(args.input)
+      return await productController.create(args)
+    },
+    async updateProduct (root, args, context) {
+      return await productController.update(args)
+    },
+    async deleteProduct (root, args, context) {
+      return await productController.delete(args)
     }
-
   }
 }
