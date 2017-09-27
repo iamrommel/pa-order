@@ -1,0 +1,3 @@
+AccountsMeld.configure({
+    askBeforeMeld: false,
+});
