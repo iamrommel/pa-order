@@ -7,8 +7,8 @@
     "dev": "meteor run --settings=settings-dev.json --debug-port=3003",
     "deploy": "publish.sh",
     "tunnel": "ngrok http 3000",
-    "test": "mocha --require ./imports/mocha-register.js  --compilers js:babel-core/register ./imports/**/*.spec.js ./client/**/*.spec.js",
-    "test:watch": "mocha --require ./imports/mocha-register.js  --compilers js:babel-core/register --colors --watch ./imports/**/*.spec.js ./client/**/*.spec.js"
+    "test": "mocha --require ./imports/mocha-register.js  --compilers js:babel-core/register ./imports/**/*.spec.js",
+    "test:watch": "mocha --require ./imports/mocha-register.js  --compilers js:babel-core/register --colors --watch ./imports/**/*.spec.js"
   },
   "dependencies": {
     "@google/maps": "^0.4.3",
