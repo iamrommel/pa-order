@@ -1,24 +1,32 @@
 import { Utils } from 'pcmli.umbrella.core'
 import { Schema } from 'mongoose'
-import { Model, BaseController } from '../common'
+import { BaseController } from '../common'
 
-const OrderSchema = new Schema({
-  code: String,
-  status: String,
-  quantity: Number,
-  price: Number,
-  total: Number
+const OrderStatusEnum = ['NEW', 'PROCESSING', 'PAID']
+const modelName = 'Order'
+
+export const OrderSchema = new Schema({
+  code: {
+    type: String,
+    default: () => Utils.generateId(6)
+  },
+  status: {
+    type: String,
+    enum: OrderStatusEnum,
+    default: OrderStatusEnum[0]
+  },
+  timeStamp: {
+    type: Date,
+    default: Date.now
+  },
+  grossAmount: Number,
+  discountAmount: Number,
+  netAmount: Number,
+  preparedBy: String //TODO: this should be a sub document of user
 })
 
-const modelName = 'Order'
-const OrderStatus = ['NEW', 'PROCESSING', 'PAID']
-
-export const OrderModel = new Model(modelName, {schema: OrderSchema})
-
 export class OrderController extends BaseController {
-
   constructor () {
-    super({model: OrderModel})
+    super({modelName, schema: OrderSchema})
   }
-
 }

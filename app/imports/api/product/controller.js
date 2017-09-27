@@ -1,15 +1,15 @@
 import { Utils } from 'pcmli.umbrella.core'
 import { Schema } from 'mongoose'
-import { Model, BaseController } from '../common'
+import { BaseController } from '../common'
 
 const modelName = 'Product'
-const productStatus = ['ACTIVE', 'IN_ACTIVE']
+const ProductStatusEnum = ['ACTIVE', 'IN_ACTIVE']
 export const ProductSchema = new Schema({
   code: String,
   status: {
     type: String,
-    enum: productStatus,
-    default: productStatus[0]
+    enum: ProductStatusEnum,
+    default: ProductStatusEnum[0]
   },
   name: {
     type: String,
@@ -24,12 +24,10 @@ export const ProductSchema = new Schema({
   }
 })
 
-export const ProductModel = new Model(modelName, {schema: ProductSchema})
-
 export class ProductController extends BaseController {
 
   constructor () {
-    super({model: ProductModel})
+    super({modelName, schema: ProductSchema})
   }
 
 }

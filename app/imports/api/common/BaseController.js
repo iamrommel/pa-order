@@ -1,9 +1,17 @@
 import { Utils } from 'pcmli.umbrella.core'
+import { Model } from './model'
 
 export class BaseController {
 
-  constructor ({model}) {
-    this.model = model
+  constructor ({model, modelName, schema}) {
+    if (model)
+      this.model = model
+    else {
+      this.model = new Model(modelName, {schema})
+    }
+
+    this.modeName = modelName
+    this.schema = schema
   }
 
   create = async ({input}) => {
@@ -36,6 +44,5 @@ export class BaseController {
     return await this.model.findOneAndRemove(filter)
 
   }
-
 
 }
