@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 import bluebird from 'bluebird'
 
 //import { Meteor } from 'meteor/meteor'
-import mockSettings from '../../settings-dev.json'
+import mockSettings from '../../../settings-dev.json'
 
 
 let Meteor = Meteor || {settings: mockSettings}

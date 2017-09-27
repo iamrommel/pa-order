@@ -1,4 +1,4 @@
-import { OrderModel } from './model'
+import { OrderModel } from './controller'
 import td from 'testdouble'
 
 describe('OrderModel', function () {
