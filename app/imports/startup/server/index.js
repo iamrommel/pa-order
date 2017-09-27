@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import './config/graphql'
 import './config/routes'
-import './config/mongoose'
+//import './config/mongoose'
 import './config/cloudinary'
 import './config/accounts-base'
 import './config/accountsMeld'

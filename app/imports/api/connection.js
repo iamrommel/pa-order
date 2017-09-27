@@ -1,12 +1,23 @@
 import mongoose from 'mongoose'
-import { Meteor } from 'meteor/meteor'
+import bluebird from 'bluebird'
 
-mongoose.Promise = global.Promise
+//import { Meteor } from 'meteor/meteor'
+import mockSettings from '../../settings-dev.json'
+
+console.log(Meteor, 'Meteor on conenction')
+
+let Meteor = Meteor || {settings: mockSettings}
+mongoose.Promise = bluebird
 
 function createConnection (name) {
-  return mongoose.createConnection(Meteor.settings[name])
+  const options = {
+    keepAlive: 120,
+    promiseLibrary: bluebird,
+    useMongoClient: true
+  }
+  const connectionString = Meteor.settings[name]
+  return mongoose.createConnection(connectionString, options)
 }
-
 
 export const defaultConnection = createConnection('MONGO_URL')
 export const on = createConnection

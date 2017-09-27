@@ -1,3 +1,3 @@
 export { ProductResolvers, ProductTypeDefs, ProductQuery, ProductMutation } from './graphql'
-export { ProductModel, ProductSchema, ProductController } from './model'
+export { ProductModel, ProductSchema, ProductController } from './controller'
 
