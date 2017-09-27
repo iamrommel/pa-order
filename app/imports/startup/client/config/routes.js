@@ -6,21 +6,12 @@ import _ from 'lodash'
 import { Sidebar, Footer, TopHeader } from '../../../ui/components'
 
 import { OverviewPage } from '../../../ui/views/overview/index'
-import { PickupListPage, PickupDetailPage } from '../../../ui/views/milk/pickup/index'
 import { CustomersDetailPage, CustomersListPage } from '../../../ui/views/customers/index'
-import { DriversDetailPage, DriversListPage } from '../../../ui/views/drivers/index'
-import { RoutesListPage, RoutesDetailPage } from '../../../ui/views/routes/index'
 import { SettingsDetailPage } from '../../../ui/views/settings/index'
 import { LoginPage, JoinPage } from '../../../ui/views/accounts'
 
 export const routesDef = {
   OverviewPage: {name: 'Overview', path: '/app/overview', component: OverviewPage, exact: true, layout: 'main'},
-  PickupListPage: {name: 'Pickup List', path: '/app/pickups/list', component: PickupListPage, exact: true, layout: 'main'},
-  PickupDetailPage: {name: 'Pickup details', path: '/app/pickups/detail/:id/:ticketNo', altPath: '/app/pickups/detail/', component: PickupDetailPage, exact: true, layout: 'main'},
-  DriversListPage: {name: 'Driver List', path: '/app/drivers/list', component: DriversListPage, exact: true, layout: 'main'},
-  DriversDetailPage: {name: 'Driver details', path: '/app/drivers/detail/:id/:code', altPath: '/app/drivers/detail/', component: DriversDetailPage, exact: true, layout: 'main'},
-  RoutesListPage: {name: 'Route List', path: '/app/routes/list', component: RoutesListPage, exact: true, layout: 'main'},
-  RoutesDetailPage: {name: 'Routes details', path: '/app/routes/detail/:id/:code', altPath: '/app/routes/detail/', component: RoutesDetailPage, exact: true, layout: 'main'},
   CustomersListPage: {name: 'Customer List', path: '/app/customers/list', component: CustomersListPage, exact: true, layout: 'main'},
   CustomersDetailPage: {name: 'Customer details', path: '/app/customers/detail/:id/:code', altPath: '/app/customers/detail/', component: CustomersDetailPage, exact: true, layout: 'main'},
   SettingsDetailPage: {name: 'Settings', path: '/app/settings', component: SettingsDetailPage, exact: true, layout: 'main'},

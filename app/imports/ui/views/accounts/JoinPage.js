@@ -4,7 +4,7 @@ import { compose } from 'recompose'
 
 import { Layout } from './component/join/Layout'
 import { withUser } from '../../containers/withUser'
-import { routesDef } from '../../../imports/startup/client/config/routes'
+import { routesDef } from '../../../startup/client/config/routes'
 
 class JoinPage extends React.Component {
 

@@ -4,7 +4,7 @@ import  WebUi from 'pcmli.umbrella.web-ui'
 import  Core from 'pcmli.umbrella.core'
 
 import { listQueryConfig } from '../../../services/customer'
-import { routesDef } from '../../../../imports/startup/client/config/routes'
+import { routesDef } from '../../../../startup/client/config/routes'
 import { CustomerDisplay } from '../../../components'
 
 let TableRow = (props) => {

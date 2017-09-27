@@ -5,7 +5,7 @@ import { compose } from 'recompose'
 
 import { defaultUpdateMutationConfig } from '../../../services/customer'
 import { withForm, } from '../../../containers'
-import { CustomerModel } from '../../../../imports/api/customer/model'
+import { CustomerModel } from '../../../../api/customer/model'
 
 let StatusButton = ({customer, alertDialog, formProps, handleSubmit, submitting}) => {
 

@@ -5,7 +5,7 @@ import { Meteor } from 'meteor/meteor'
 import { createContainer } from 'meteor/react-meteor-data'
 import { compose } from 'recompose'
 import { withRouter } from 'react-router-dom'
-import { routesDef } from '../../imports/startup/client/config/routes'
+import { routesDef } from '../../startup/client/config/routes'
 
 
 //Note: This cannot be at the core because of the dependency on Meteor package

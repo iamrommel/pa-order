@@ -2,7 +2,7 @@ import { Sidebar as Sb } from 'pcmli.umbrella.web-ui'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { routesDef } from '../../imports/startup/client/config/routes'
+import { routesDef } from '../../startup/client/config/routes'
 import { UserDisplay } from './UserDisplay'
 
 export const Sidebar = () => {
@@ -14,24 +14,9 @@ export const Sidebar = () => {
       name: 'Overview'
     },
     {
-      url: routesDef.PickupListPage.path,
-      icon: 'file',
-      name: 'Pickups'
-    },
-    {
       url: routesDef.CustomersListPage.path,
       icon: 'users',
       name: 'Customers'
-    },
-    {
-      url: routesDef.DriversListPage.path,
-      icon: 'car',
-      name: 'Drivers'
-    },
-    {
-      url: routesDef.RoutesListPage.path,
-      icon: 'map-marker',
-      name: 'Routes'
     },
     {
       url: routesDef.SettingsDetailPage.path,

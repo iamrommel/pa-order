@@ -3,7 +3,7 @@ import { PageHeader, PageContent, Breadcrumb } from 'pcmli.umbrella.web-ui'
 
 import { SettingsLayout } from './component/SettingsLayout'
 import { Page } from '../../components'
-import { routesDef } from '../../../imports/startup/client/config/routes'
+import { routesDef } from '../../../startup/client/config/routes'
 
 export const DetailPage = () => {
 

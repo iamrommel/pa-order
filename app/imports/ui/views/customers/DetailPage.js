@@ -2,7 +2,7 @@ import React from 'react'
 import { PageHeader, PageContent, Breadcrumb } from 'pcmli.umbrella.web-ui'
 
 import { DetailLayout } from './component/DetailLayout'
-import { routesDef } from '../../../imports/startup/client/config/routes'
+import { routesDef } from '../../../startup/client/config/routes'
 import { Page } from '../../components'
 
 export const DetailPage = ({match = {}}) => {
