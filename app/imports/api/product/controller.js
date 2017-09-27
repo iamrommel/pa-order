@@ -11,9 +11,17 @@ export const ProductSchema = new Schema({
     enum: productStatus,
     default: productStatus[0]
   },
-  name: String,
-  remarks: String,
-  tags: [String]
+  name: {
+    type: String,
+    default: 'New Product'
+  },
+  remarks: {
+    type: String,
+  },
+  tags: {
+    type: [String],
+    default: ['new']
+  }
 })
 
 export const ProductModel = new Model(modelName, {schema: ProductSchema})
