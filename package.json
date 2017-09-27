@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "description": "Boilerplate project for building Isomorphic apps using React and Redux",
   "scripts": {
+    "db": "mongod --dbpath=C:\\data\\paorderdb\\",
     "test": "cross-env NODE_ENV=test PORT=8080 MONGO_URL=mongodb://localhost:27017/mern-test node_modules/.bin/nyc node --harmony-proxies node_modules/.bin/ava",
     "watch:test": "npm run test -- --watch",
     "cover": "nyc npm run test",
@@ -14,22 +15,13 @@
     "build:server": "cross-env NODE_ENV=production webpack --config webpack.config.server.js",
     "clean": "rimraf dist",
     "slate": "rimraf node_modules && npm install",
-    "lint": "eslint client server"
+    "lint": "eslint client server",
+    "dev": "concurrently   \"npm run db\" \"cross-env BABEL_DISABLE_CACHE=1 NODE_ENV=development nodemon index.js\""
   },
   "pre-commit": [
     "lint",
     "test"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Hashnode/mern-starter.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Hashnode/mern-starter/issues"
-  },
-  "homepage": "https://github.com/Hashnode/mern-starter#readme",
-  "author": "Prashant Abhishek <prashant.abhishek7g@gmail.com>, Mayank Chandola <imayankchd@gmail.com>, Sandeep Panda <sandeep@hashnode.com>, Syed Fazle Rahman <fazle@hashnode.com>, Alkshendra Maurya <alkshendra@hashnode.com>",
-  "license": "MIT",
   "dependencies": {
     "babel-core": "^6.9.1",
     "body-parser": "^1.15.1",
@@ -66,6 +58,7 @@
     "babel-register": "^6.9.0",
     "chai": "^3.5.0",
     "chunk-manifest-webpack-plugin": "0.1.0",
+    "concurrently": "^3.5.0",
     "coveralls": "^2.11.9",
     "css-loader": "^0.23.1",
     "css-modules-require-hook": "^4.0.1",
