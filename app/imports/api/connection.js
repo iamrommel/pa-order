@@ -20,4 +20,4 @@ function createConnection (name) {
 }
 
 export const defaultConnection = createConnection('MONGO_URL')
-export const on = createConnection
+export const onCreateConnection = createConnection

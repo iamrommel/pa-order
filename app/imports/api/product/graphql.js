@@ -5,7 +5,6 @@ export const ProductQuery = `
 `
 
 export const ProductMutation = `
-  mutateProducts(_id: String!, doc: String, _type : String) : Product
   createProduct(input : ProductInput!) : Product
 `
 
@@ -42,13 +41,9 @@ export const ProductResolvers = {
     },
   },
   Mutation: {
-    mutateProducts (root, args, context) {
-      //return context.ProductModel.mutate({args, context})
-    },
 
-    createProduct (root, args, context) {
-
-      productController.create(args.input)
+    async createProduct (root, args, context) {
+      return await productController.create(args.input)
     }
 
   }

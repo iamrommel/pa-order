@@ -20,8 +20,8 @@ export const ProductModel = new Model(modelName, {schema: ProductSchema})
 
 export class ProductController {
 
-  create = (document) => {
-    ProductModel.create(document)
+  create = async (document) => {
+    return await ProductModel.create(document)
   }
 
 }

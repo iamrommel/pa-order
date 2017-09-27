@@ -1,4 +1,4 @@
-import { on, defaultConnection } from './connection'
+import { onCreateConnection, defaultConnection } from './connection'
 
 export class Model {
 
@@ -10,8 +10,9 @@ export class Model {
   }
 
   connection () {
+    console.log(this.connectionName, 'this.connectionName')
     if (this.connectionName) {
-      return on(this.connectionName)
+      return onCreateConnection(this.connectionName)
     }
 
     return defaultConnection
