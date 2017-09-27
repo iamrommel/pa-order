@@ -1,7 +1,6 @@
 import { Utils } from 'pcmli.umbrella.core'
-import mongoose, { Schema } from 'mongoose'
-
-import {on} from '../connection'
+import { Schema } from 'mongoose'
+import { Model } from '../model'
 
 const modelName = 'Product'
 const productStatus = ['ACTIVE', 'IN_ACTIVE']
@@ -17,11 +16,10 @@ export const ProductSchema = new Schema({
   tags: [String]
 })
 
-export const ProductModel = mongoose.model(modelName, ProductSchema)
+export const ProductModel = new Model(modelName, {schema: ProductSchema})
 
 export class ProductController {
-  constructor () {
 
-  }
+
 
 }

@@ -1,12 +1,12 @@
-export const query = `
+export const ProductQuery = `
   allProducts(filter: String, options: String): [Product]
 `
 
-export const mutation = `
+export const ProductMutation = `
   mutateProducts(_id: String!, doc: String, _type : String) : Product
 `
 
-export const typeDefs = [`
+export const ProductTypeDefs = [`
 type ProductDetail {
   _id : String
   product : Product
@@ -25,7 +25,7 @@ type Product {
 }
 `]
 
-export const resolvers = {
+export const ProductResolvers = {
   Query: {
     allProducts (root, args, context) {
       return context.ProductModel.find({args, context})
