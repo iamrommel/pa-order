@@ -3,7 +3,7 @@ import { graphql, gql } from 'react-apollo'
 import WebUi from 'pcmli.umbrella.web-ui'
 import { withProps, compose } from 'recompose'
 
-import { CustomerModel } from '../../imports/api/customer/model'
+import { CustomerModel } from '../../api/customer/model'
 import { CustomerDisplay } from './CustomerDisplay'
 
 export const innerOptionRenderer = ({option}) => {

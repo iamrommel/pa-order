@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { CustomerModel } from '../../imports/api/customer/model'
+import { CustomerModel } from '../../api/customer/model'
+
 
 export const CustomerStatus = ({value, className}) => {
 
