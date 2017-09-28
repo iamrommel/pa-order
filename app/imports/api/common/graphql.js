@@ -118,17 +118,16 @@ export const buildGraphql = (controller, subControllers = []) => {
     const resolverSub = {
       Mutation: {
         async [`create${modelName}_${subController}`] (root, args, context) {
-          return await controller[`${subController}Controller`].create(args)
+          return await controller[`${subController}Controller`].create(args, context, root)
         },
         async [`delete${modelName}_${subController}`] (root, args, context) {
-          return await controller[`${subController}Controller`].delete(args)
+          return await controller[`${subController}Controller`].delete(args, context, root)
         },
         async [`update${modelName}_${subController}`] (root, args, context) {
-          return await controller[`${subController}Controller`].update(args)
+          return await controller[`${subController}Controller`].update(args, context, root)
         },
       }
     }
-
 
     //concatenate it with the main mutation
     mutation = `${mutation} ${mutationSub}`
