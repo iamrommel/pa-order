@@ -2,7 +2,6 @@ import React from 'react'
 import WebUi from 'pcmli.umbrella.web-ui'
 
 import { AddNewFormModal } from './AddNewFormModal'
-import { CustomerModel } from '../../../../imports/api/customer/model'
 import { List } from './List'
 
 export class ListLayout extends React.Component {
@@ -29,7 +28,7 @@ export class ListLayout extends React.Component {
 
   render () {
 
-    const initialValues = Object.assign({_type: 'create'}, CustomerModel.createDefault())
+    const initialValues = { code:"[auto]" }
 
     let {selectedItem, searchString, sortObject, style} = this.state || {}
 

@@ -5,3 +5,4 @@ export const OrderStatusEnum = {
   'processing': 'Processing',
   'paid': 'Paid'
 }
+
