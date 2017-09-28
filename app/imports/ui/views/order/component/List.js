@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import  WebUi from 'pcmli.umbrella.web-ui'
 import  Core from 'pcmli.umbrella.core'
 
-import { listQueryConfig } from '../../../services/customer'
+import { listQueryConfig } from '../../../services/order'
 import { routesDef } from '../../../../startup/client/config/routes'
 import { CustomerDisplay } from '../../../components'
 

@@ -6,7 +6,7 @@ import { ProfileFormPanel } from './ProfileFormPanel'
 import { ContactFormPanel } from './ContactFormPanel'
 
 import { ActivityDisplay, TotalMilkIntegration } from '../../../components'
-import { defaultUpdateMutationConfig } from '../../../services/customer'
+import { defaultUpdateMutationConfig } from '../../../services/order'
 
 export const DetailLayoutBody = ({data}) => {
 

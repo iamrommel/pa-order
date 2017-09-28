@@ -16,34 +16,27 @@ export const defaultParamsToDoc = ({params}) => {
 export const listQueryConfig = () => {
 
   //region GraphQL query
-  const query = gql`query allCustomers($filter: String, $options: String) {
-  allCustomers(filter: $filter, options: $options) {
+  const query = gql`query allOrder($filter: String, $options: String) {
+  allOrder(filter: $filter, options: $options) {
     _id
-    summary
     code
-    name
-    type
     status
-    logo {
-      default
-    }
-    contact {
-      address1 {
-        fullAddress
-      }
-    }
     tags
     remarks
-    
+    timeStamp
+    netAmount
+    details {
+      _id
+    }
   }
-  pageInfo(filter: $filter, type: "CustomerModel") {
+  allOrderMeta(filter: $filter) {
     count
   }
 }
 `
 //endregion
 
-  return {query, entity: 'allCustomers'}
+  return {query, entity: 'allOrder'}
 }
 
 //region documentFragment

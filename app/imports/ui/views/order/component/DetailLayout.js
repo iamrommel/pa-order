@@ -3,7 +3,7 @@ import { Col, Row } from 'react-bootstrap'
 import { Ibox, IboxContent } from 'pcmli.umbrella.web-ui'
 import { withDocument } from 'pcmli.umbrella.core'
 
-import { documentQueryConfig, defaultUpdateMutationConfig } from '../../../services/customer'
+import { documentQueryConfig, defaultUpdateMutationConfig } from '../../../services/order'
 import { DetailLayoutHeader } from './DetailLayoutHeader'
 import { DetailLayoutBody } from './DetailLayoutBody'
 import { RemarksManager, TagsManager, LogoManager } from '../../../components'

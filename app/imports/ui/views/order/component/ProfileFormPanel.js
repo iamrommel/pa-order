@@ -6,7 +6,7 @@ import { compose } from 'recompose'
 import _ from 'lodash'
 
 import { withFormPanel } from '../../../containers'
-import { defaultUpdateMutationConfig, formConfig } from '../../../services/customer'
+import { defaultUpdateMutationConfig, formConfig } from '../../../services/order'
 import { CustomerTypeAutoSelectEditor } from '../../../components'
 
 const ViewMode = () => {

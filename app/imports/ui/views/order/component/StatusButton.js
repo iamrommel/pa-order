@@ -3,7 +3,7 @@ import { withMutation } from 'pcmli.umbrella.core'
 import { withAlertDialog, DisplayHelpBlock, BusyButton, FormUtil } from 'pcmli.umbrella.web-ui'
 import { compose } from 'recompose'
 
-import { defaultUpdateMutationConfig } from '../../../services/customer'
+import { defaultUpdateMutationConfig } from '../../../services/order'
 import { withForm, } from '../../../containers'
 import { CustomerModel } from '../../../../api/customer/model'
 

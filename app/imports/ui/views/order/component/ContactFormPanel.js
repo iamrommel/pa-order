@@ -7,7 +7,7 @@ import _ from 'lodash'
 import { Field } from 'redux-form'
 
 import { withFormPanel } from '../../../containers'
-import { defaultUpdateMutationConfig, formConfig } from '../../../services/customer'
+import { defaultUpdateMutationConfig, formConfig } from '../../../services/order'
 import { Contact } from '../../../components'
 
 const ViewMode = ({initialValues}) => {
