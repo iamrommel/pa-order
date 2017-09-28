@@ -14,9 +14,9 @@ export const Sidebar = () => {
       name: 'Overview'
     },
     {
-      url: routesDef.CustomersListPage.path,
+      url: routesDef.OrderListPage.path,
       icon: 'users',
-      name: 'Customers'
+      name: 'Orders'
     },
     {
       url: routesDef.SettingsDetailPage.path,

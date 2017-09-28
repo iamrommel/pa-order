@@ -12,13 +12,13 @@ export const DetailPage = ({match = {}}) => {
 
   const items = [
     routesDef.OverviewPage,
-    routesDef.CustomersListPage,
+    routesDef.OrderListPage,
     {name: code},
   ]
 
   return (
     <Page>
-      <PageHeader title="Customers" breadcrumbs={<Breadcrumb items={items}/>}/>
+      <PageHeader title="Orders" breadcrumbs={<Breadcrumb items={items}/>}/>
       <PageContent>
         <DetailLayout params={params}/>
       </PageContent>

@@ -9,12 +9,12 @@ export const ListPage = () => {
 
   const items = [
     routesDef.OverviewPage,
-    {name: 'Customer List'},
+    {name: 'Order List'},
   ]
 
   return (
     <Page>
-      <PageHeader title="Customers" breadcrumbs={<Breadcrumb items={items}/>}/>
+      <PageHeader title="Orders" breadcrumbs={<Breadcrumb items={items}/>}/>
       <PageContent>
         <ListLayout/>
       </PageContent>
