@@ -37,7 +37,7 @@ export const OrderSchema = new Schema({
 
 export class OrderController extends BaseController {
   constructor () {
-    super({modelName, schema: OrderSchema})
+    super({modelName, schema: OrderSchema, appSettings: Meteor.settings})
     this.detailsController = new BaseSubController({model: this.model, childName: 'details'})
 
   }

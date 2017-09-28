@@ -27,7 +27,7 @@ export const ProductSchema = new Schema({
 export class ProductController extends BaseController {
 
   constructor () {
-    super({modelName, schema: ProductSchema})
+    super({modelName, schema: ProductSchema, appSettings: Meteor.settings})
   }
 
 }
