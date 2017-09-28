@@ -11,17 +11,6 @@ type Product {
     tags : [String]
     remarks : String
 }
-
-
-input ProductInput {
-    _id : String,
-    code: String
-    status: String
-    name : String!
-    tags : [String]
-    remarks : String
-}
-
 `]
 
 const productController = new ProductController()

@@ -80,15 +80,15 @@ export const buildGraphql = (controller) => {
   const modelName = controller.modelName
   const query = `all${modelName}(filter: String, options: String, projection : String): [${modelName}]`
   const mutation = `
-  create${modelName}(input : ${modelName}Input!) : ${modelName},
-  update${modelName}(input : ${modelName}Input!, filter: String) : ${modelName},
+  create${modelName}(input : String!) : ${modelName},
+  update${modelName}(input : String!, filter: String) : ${modelName},
   delete${modelName}(filter: String) : ${modelName},
 `
 
   const resolvers = {
     Query: {
       async [`all${modelName}`] (root, args, context) {
-        return await controller.getAll(args)
+        return await controller.getAll(args, context, root)
       },
     },
     Mutation: {
@@ -97,10 +97,10 @@ export const buildGraphql = (controller) => {
         return await controller.create(args)
       },
       async [`update${modelName}`] (root, args, context) {
-        return await controller.update(args)
+        return await controller.update(args, context, root)
       },
       async [`delete${modelName}`] (root, args, context) {
-        return await controller.delete(args)
+        return await controller.delete(args, context, root)
       }
     }
   }

@@ -15,6 +15,8 @@ export class BaseController {
   }
 
   create = async ({input}) => {
+    input = Utils.jsonTryParse(input)
+
     return await this.model.create(input)
   }
 
@@ -35,6 +37,8 @@ export class BaseController {
     let condition = {_id: input._id}
     if (filter)
       condition = Utils.filterToObject(filter)
+
+    input = Utils.jsonTryParse(input)
 
     return await this.model.findOneAndUpdate(condition, input, options)
   }
