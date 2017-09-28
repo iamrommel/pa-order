@@ -75,17 +75,19 @@ export const commonContext = {
   ContactModel: contactModel
 }
 
-export const buildGraphql = (controller) => {
+export const buildGraphql = (controller, subControllers = []) => {
 
   const modelName = controller.modelName
+
   const query = `all${modelName}(filter: String, options: String, projection : String): [${modelName}]`
-  const mutation = `
+
+  let mutation = `
   create${modelName}(input : String!) : ${modelName},
   update${modelName}(input : String!, filter: String) : ${modelName},
   delete${modelName}(filter: String) : ${modelName},
 `
 
-  const resolvers = {
+  let resolvers = {
     Query: {
       async [`all${modelName}`] (root, args, context) {
         return await controller.getAll(args, context, root)
@@ -104,6 +106,37 @@ export const buildGraphql = (controller) => {
       }
     }
   }
+
+  //add the subControllers mutations
+  subControllers.forEach((subController) => {
+    const mutationSub = `
+        create${modelName}_${subController}(input : String!, filter: String) : ${modelName},
+        delete${modelName}_${subController}(filter: String) : ${modelName},
+        update${modelName}_${subController}(input : String!, filter: String) : ${modelName},
+      `
+
+    const resolverSub = {
+      Mutation: {
+        async [`create${modelName}_${subController}`] (root, args, context) {
+          return await controller[`${subController}Controller`].create(args)
+        },
+        async [`delete${modelName}_${subController}`] (root, args, context) {
+          return await controller[`${subController}Controller`].delete(args)
+        },
+        async [`update${modelName}_${subController}`] (root, args, context) {
+          return await controller[`${subController}Controller`].update(args)
+        },
+      }
+    }
+
+
+    //concatenate it with the main mutation
+    mutation = `${mutation} ${mutationSub}`
+
+    //merge teh resolversSub
+    resolvers = _.merge(resolvers, resolverSub)
+
+  })
 
   return {query, mutation, resolvers}
 

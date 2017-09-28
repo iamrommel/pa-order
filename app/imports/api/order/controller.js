@@ -113,7 +113,7 @@ export class OrderController extends BaseController {
   constructor () {
     super({modelName, schema: OrderSchema})
 
-    this.detailController = new BaseSubController({model: this.model, childName: 'details'})
+    this.detailsController = new BaseSubController({model: this.model, childName: 'details'})
   }
 
   // ['create_details'] = async ({filter, input}) => {
