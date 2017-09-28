@@ -1,5 +1,4 @@
-import _ from 'lodash'
-import { buildGraphql } from '../common'
+import { buildGraphql } from 'pcmli.umbrella.backend'
 import { OrderController } from './controller'
 
 export const OrderTypeDefs = [`

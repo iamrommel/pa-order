@@ -1,6 +1,6 @@
 import { Utils } from 'pcmli.umbrella.core'
+import { BaseController, BaseSubController } from 'pcmli.umbrella.backend'
 import { Schema } from 'mongoose'
-import { BaseController, BaseSubController } from '../common'
 import { ProductSchema } from '../product'
 
 const OrderStatusEnum = ['NEW', 'PROCESSING', 'PAID']

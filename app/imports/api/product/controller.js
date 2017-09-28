@@ -1,6 +1,6 @@
 import { Utils } from 'pcmli.umbrella.core'
 import { Schema } from 'mongoose'
-import { BaseController } from '../common'
+import { BaseController } from 'pcmli.umbrella.backend'
 
 const modelName = 'Product'
 const ProductStatusEnum = ['ACTIVE', 'IN_ACTIVE']

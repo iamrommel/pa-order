@@ -1,5 +1,5 @@
+import { buildGraphql } from 'pcmli.umbrella.backend'
 import { ProductController } from './controller'
-import { buildGraphql } from '../common'
 
 export const ProductTypeDefs = [`
 

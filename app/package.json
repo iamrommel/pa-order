@@ -31,7 +31,7 @@
     "metismenu": "^2.5.2",
     "moment": "^2.16.0",
     "mongo-tenant": "^1.0.4",
-    "mongoose": "^4.10.7",
+    "mongoose": "^4.11.13",
     "multer": "^1.3.0",
     "pcmli.umbrella.backend": "^1.0.2",
     "pcmli.umbrella.core": "^4.0.6",
