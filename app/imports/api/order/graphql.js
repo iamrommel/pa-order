@@ -29,29 +29,4 @@ type Order {
 const controller = new OrderController()
 let graphql = buildGraphql(controller, ['details'])
 
-//
-// //merge the create of details
-// const mutation = `
-//   ${graphql.mutation},
-//   create_details(input : String!, filter: String) : Order,
-//   delete_details(filter: String) : Order,
-//   update_details(input : String!, filter: String) : Order,
-// `
-//
-// const resolvers = {
-//   Mutation: {
-//     async [`create_details`] (root, args, context) {
-//       return await controller.detailController.create(args)
-//     },
-//     async [`delete_details`] (root, args, context) {
-//       return await controller.detailController.delete(args)
-//     },
-//     async [`update_details`] (root, args, context) {
-//       return await controller.detailController.update(args)
-//     },
-//   }
-// }
-//
-// graphql = _.merge(graphql, {mutation}, {resolvers})
-
 export { graphql }

@@ -1,4 +1,5 @@
 export { BaseController } from './BaseController'
+export { BaseSubController } from './BaseSubController'
 export { Model } from './model'
 export { defaultConnection, onCreateConnection } from './connection'
 export {buildGraphql} from './graphql'
