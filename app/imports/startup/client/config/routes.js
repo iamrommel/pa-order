@@ -13,7 +13,7 @@ import { LoginPage, JoinPage } from '../../../../client/views/accounts'
 export const routesDef = {
   OverviewPage: {name: 'Overview', path: '/app/overview', component: OverviewPage, exact: true, layout: 'main'},
   OrderListPage: {name: 'Order List', path: '/app/orders/list', component: OrderListPage, exact: true, layout: 'main'},
-  CustomersDetailPage: {name: 'Order details', path: '/app/orders/detail/:id/:code', altPath: '/app/orders/detail/', component: OrderDetailPage, exact: true, layout: 'main'},
+  OrderDetailPage: {name: 'Order details', path: '/app/orders/detail/:id/:code', altPath: '/app/orders/detail/', component: OrderDetailPage, exact: true, layout: 'main'},
 
   SettingsDetailPage: {name: 'Settings', path: '/app/settings', component: SettingsDetailPage, exact: true, layout: 'main'},
   LoginPage: {name: 'Login', path: '/account/login', component: LoginPage, exact: true, layout: 'blank'},

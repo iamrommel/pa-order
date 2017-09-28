@@ -2,16 +2,7 @@ import { gql } from 'react-apollo'
 import _ from 'lodash'
 import { Utils } from 'pcmli.umbrella.core'
 
-export const defaultParamsToDoc = ({params}) => {
-  const type = _.get(params, 'type.value') || _.get(params, 'type') || ''
-
-  let result = _.pick(params, ['_id', 'code', 'name', 'title', 'status'])
-  result.type = type
-  result.contact = Utils.buildContact({params})
-  result.summary = `${params.code} - ${params.name}`
-
-  return result
-}
+export const defaultParamsToDoc = ({params}) => ({...params})
 
 export const listQueryConfig = () => {
 
@@ -40,45 +31,13 @@ export const listQueryConfig = () => {
 }
 
 //region documentFragment
-const documentFragment = ` _id
-    summary
+const documentFragment = `   _id
     code
-    name
-    title
-    type
     status
-    logo {
-      default
-      large
-    }
-    contact {
-      email
-      phone
-      address1 {
-        street1
-        street2
-        city
-        state
-        zip
-        fullAddress
-        gps {
-          lng
-          lat
-        }
-      }
-    }
     tags
     remarks
-    _histories {
-      _id
-      timeStamp
-      description
-      author
-      diff
-    }
-    _syncInfo {
-      externalId
-    }
+    timeStamp
+    netAmount
     `
 //endregion
 
@@ -110,9 +69,15 @@ export const defaultUpdateMutationConfig = {
   _type: 'update', entity: 'mutateCustomers', query: mutationQuery, paramsToDoc: defaultParamsToDoc, refetchQueries: ['singleCustomer']
 }
 
+export const createMutationQuery = gql`mutation createOrder($input: String!) {
+  createOrder(input: $input) {
+     ${documentFragment}
+  }
+}`
 export const defaultCreateMutationConfig = {
-  _type: 'create', entity: 'mutateCustomers', query: mutationQuery, paramsToDoc: defaultParamsToDoc
+  _type: 'create', entity: 'createOrder', query: createMutationQuery, paramsToDoc: defaultParamsToDoc
 }
+
 
 export const formConfig = {
   form: 'CustomerForm',

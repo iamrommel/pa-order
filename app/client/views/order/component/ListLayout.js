@@ -28,7 +28,7 @@ export class ListLayout extends React.Component {
 
   render () {
 
-    const initialValues = { code:"[auto]" }
+    const initialValues = {code: '[auto]', timeStamp: Date.now()}
 
     let {selectedItem, searchString, sortObject, style} = this.state || {}
 

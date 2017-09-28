@@ -20,8 +20,8 @@ const mutationConfig = {
   ...defaultCreateMutationConfig,
   after: ({response, ownProps}) => {
     const {history} = ownProps
-    const {data: {mutateCustomers: {_id, code}}} = response
-    history.push(`${routesDef.CustomersDetailPage.altPath}${_id}/${code}`)
+    const {data: {createOrder: {_id, code}}} = response
+    history.push(`${routesDef.OrderDetailPage.altPath}${_id}/${code}`)
   },
 }
 

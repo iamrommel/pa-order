@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Utils } from 'pcmli.umbrella.uni-core'
 import { Label, Table, Tags } from 'pcmli.umbrella.web-ui'
-import WebUi from 'pcmli.umbrella.web-ui'
 import Core from 'pcmli.umbrella.core'
 
 import { listQueryConfig } from '../../../services/order'
@@ -19,7 +18,7 @@ let TableRow = (props) => {
   return (
     <tr>
       <td style={{width: '8%'}}>
-        <Link to={`${routesDef.CustomersDetailPage.altPath}${_id}/${code}`}>#{code}</Link>
+        <Link to={`${routesDef.OrderDetailPage.altPath}${_id}/${code}`}>#{code}</Link>
       </td>
       <td>
         <h4>
