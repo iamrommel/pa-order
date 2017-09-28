@@ -3,7 +3,7 @@ import {  IboxContent, Image } from 'pcmli.umbrella.web-ui'
 import { compose } from 'recompose'
 
 import { LoginButton, CopyrightNotice } from '../../components'
-import { routesDef } from '../../../startup/client/config/routes'
+import { routesDef } from '../../../imports/startup/client/config/routes'
 import { AppVersion } from '../../components/index'
 import { withUser } from '../../containers/withUser'
 

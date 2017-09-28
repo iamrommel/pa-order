@@ -3,12 +3,12 @@ import { Route } from 'react-router-dom'
 import { Page, PageLayoutBlank, PageLayoutMain, PageLayoutNotFound } from 'pcmli.umbrella.web-ui'
 import _ from 'lodash'
 
-import { Sidebar, Footer, TopHeader } from '../../../ui/components'
+import { Sidebar, Footer, TopHeader } from '../../../../client/components'
 
-import { OverviewPage } from '../../../ui/views/overview/index'
-import { OrderListPage, OrderDetailPage } from '../../../ui/views/order'
-import { SettingsDetailPage } from '../../../ui/views/settings/index'
-import { LoginPage, JoinPage } from '../../../ui/views/accounts'
+import { OverviewPage } from '../../../../client/views/overview/index'
+import { OrderListPage, OrderDetailPage } from '../../../../client/views/order'
+import { SettingsDetailPage } from '../../../../client/views/settings/index'
+import { LoginPage, JoinPage } from '../../../../client/views/accounts'
 
 export const routesDef = {
   OverviewPage: {name: 'Overview', path: '/app/overview', component: OverviewPage, exact: true, layout: 'main'},

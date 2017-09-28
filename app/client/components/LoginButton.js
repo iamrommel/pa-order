@@ -5,7 +5,7 @@ import { Meteor } from 'meteor/meteor'
 import { Icon } from 'pcmli.umbrella.web-ui'
 import toastr from 'toastr'
 
-import { routesDef } from '../../startup/client/config/routes'
+import { routesDef } from '../../imports/startup/client/config/routes'
 
 let LoginButton = ({history}) => {
 

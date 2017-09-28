@@ -6,7 +6,7 @@ import WebUi from 'pcmli.umbrella.web-ui'
 import Core from 'pcmli.umbrella.core'
 
 import { listQueryConfig } from '../../../services/order'
-import { routesDef } from '../../../../startup/client/config/routes'
+import { routesDef } from '../../../../imports/startup/client/config/routes'
 import { OrderStatusLabel } from './OrderStatusLabel'
 
 let TableRow = (props) => {

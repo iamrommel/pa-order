@@ -5,7 +5,7 @@ import { compose } from 'recompose'
 
 import { defaultUpdateMutationConfig } from '../../../services/order'
 import { withForm, } from '../../../containers'
-import { CustomerModel } from '../../../../api/customer/model'
+import { CustomerModel } from '../../../../imports/api/customer/model'
 
 let StatusButton = ({customer, alertDialog, formProps, handleSubmit, submitting}) => {
 
@@ -75,7 +75,7 @@ const mutationConfig = {
   ...defaultUpdateMutationConfig,
   paramsToDoc: ({params}) => {
     return {
-      $set : {
+      $set: {
         _id: params._id,
         status: params.status
       }

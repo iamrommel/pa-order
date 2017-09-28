@@ -1,28 +1,25 @@
 import React from 'react'
 import { PageHeader, PageContent, Breadcrumb } from 'pcmli.umbrella.web-ui'
 
-import { DetailLayout } from './component/DetailLayout'
-import { routesDef } from '../../../startup/client/config/routes'
 import { Page } from '../../components'
+import { ListLayout } from './component/ListLayout'
+import { routesDef } from '../../../imports/startup/client/config/routes'
 
-export const DetailPage = ({match = {}}) => {
-
-  const {params = {}} = match
-  const {code} = params
+export const ListPage = () => {
 
   const items = [
     routesDef.OverviewPage,
-    routesDef.OrderListPage,
-    {name: code},
+    {name: 'Order List'},
   ]
 
   return (
     <Page>
       <PageHeader title="Orders" breadcrumbs={<Breadcrumb items={items}/>}/>
       <PageContent>
-        <DetailLayout params={params}/>
+        <ListLayout/>
       </PageContent>
     </Page>
   )
 }
+
 

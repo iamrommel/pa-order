@@ -7,7 +7,7 @@ import { withMutation } from 'pcmli.umbrella.core'
 import { CustomerTypeAutoSelectEditor } from '../../../components'
 import { formConfig, defaultCreateMutationConfig } from '../../../services/order'
 import { withFormModal, } from '../../../containers'
-import { routesDef } from '../../../../startup/client/config/routes'
+import { routesDef } from '../../../../imports/startup/client/config/routes'
 
 let AddNewFormModal = () => {
   return <div>

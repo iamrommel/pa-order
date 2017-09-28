@@ -2,11 +2,10 @@ import { Sidebar as Sb } from 'pcmli.umbrella.web-ui'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { routesDef } from '../../startup/client/config/routes'
+import { routesDef } from '../../imports/startup/client/config/routes'
 import { UserDisplay } from './UserDisplay'
 
 export const Sidebar = () => {
-
   const menuItems = [
     {
       url: routesDef.OverviewPage.path,
