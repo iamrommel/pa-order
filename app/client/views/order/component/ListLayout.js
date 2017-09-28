@@ -2,7 +2,7 @@ import React from 'react'
 import WebUi from 'pcmli.umbrella.web-ui'
 
 import { AddNewFormModal } from './AddNewFormModal'
-import { CustomerModel } from '../../../../api/customer/model'
+import { CustomerModel } from '../../../../imports/api/customer/model'
 import { List } from './List'
 
 export class ListLayout extends React.Component {
