@@ -10,6 +10,14 @@ type OrderDetail {
   total : Float
 }
 
+input OrderDetailInput {
+  _id : String
+  product : ProductInput
+  quantity : Float
+  price : Float
+  total : Float
+}
+
 type Order {
     _id : String
     code: String
@@ -17,15 +25,22 @@ type Order {
     tags : [String]
     remarks : String
     timeStamp : Date
-    _histories : [History]
+    grossAmount : Float
+    discountAmount : Float
+    netAmount : Float
+    details : [OrderDetail]
 }
 input OrderInput {
-    _id : String
+     _id : String
     code: String
     status: String
-    timeStamp : Date
     tags : [String]
     remarks : String
+    timeStamp : Date
+    grossAmount : Float
+    discountAmount : Float
+    netAmount : Float
+    details : [OrderDetailInput]
  }
     
  `]

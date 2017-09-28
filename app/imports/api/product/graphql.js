@@ -10,7 +10,6 @@ type Product {
     name : String!
     tags : [String]
     remarks : String
-    _histories : [History],
 }
 
 

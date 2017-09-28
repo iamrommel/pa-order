@@ -1,9 +1,17 @@
 import { Utils } from 'pcmli.umbrella.core'
 import { Schema } from 'mongoose'
 import { BaseController } from '../common'
+import { ProductSchema } from '../product'
 
 const OrderStatusEnum = ['NEW', 'PROCESSING', 'PAID']
 const modelName = 'Order'
+
+const OrderDetailSchema = new Schema({
+  product: ProductSchema,
+  quantity: Number,
+  price: Number,
+  total: Number
+})
 
 export const OrderSchema = new Schema({
   code: {
@@ -19,11 +27,12 @@ export const OrderSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  remarks : String,
+  remarks: String,
   grossAmount: Number,
   discountAmount: Number,
   netAmount: Number,
-  preparedBy: String //TODO: this should be a sub document of user
+  preparedBy: String,
+  details: [OrderDetailSchema]
 })
 
 export class OrderController extends BaseController {
