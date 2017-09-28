@@ -27,18 +27,15 @@ class LeftDetailSection extends React.Component {
 
   render () {
     const {document} = this.props
-    let {logo, remarks, tags, _id} = document || {}
+    let {remarks, tags, _id} = document || {}
 
     return (
       <div>
         <Ibox>
-          <IboxContent className="no-margins no-padding">
-            <LogoManager logo={logo} _id={_id} mutationConfig={defaultUpdateMutationConfig}/>
-          </IboxContent>
           <IboxContent>
             <div className="row">
-              <RemarksManager _id={_id} remarks={remarks} mutationConfig={defaultUpdateMutationConfig}/>
-              <TagsManager _id={_id} tags={tags} mutationConfig={defaultUpdateMutationConfig}/>
+              <RemarksManager filter={{_id}} remarks={remarks} mutationConfig={defaultUpdateMutationConfig}/>
+              <TagsManager filter={{_id}} tags={tags} mutationConfig={defaultUpdateMutationConfig}/>
             </div>
           </IboxContent>
         </Ibox>

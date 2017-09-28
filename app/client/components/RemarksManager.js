@@ -3,14 +3,10 @@ import { compose } from 'recompose'
 import { withFormModal, RemarksForm, RemarksDisplay, Icon, FormUtil } from 'pcmli.umbrella.web-ui'
 import { withMutation } from 'pcmli.umbrella.core'
 
-
 const updateQueryConfig = {
   paramsToDoc: ({params}) => {
     return {
-      $set : {
-        _id: params._id,
-        remarks: params.remarks
-      }
+      remarks: params.remarks
     }
   },
   after: FormUtil.afterUpdate({successMessage: 'Successfully updated the remarks!'})

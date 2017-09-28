@@ -5,10 +5,7 @@ import { withMutation } from 'pcmli.umbrella.core'
 
 const paramsToDoc = ({params}) => {
   return {
-    $set: {
-      _id: params._id,
-      tags: params.tags
-    }
+    tags: params.tags
   }
 }
 

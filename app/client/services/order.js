@@ -64,9 +64,13 @@ export const mutationQuery = gql`mutation mutateCustomers($_id: String!, $doc: S
 `
 
 //endregion
-
+export const updateMutationQuery = gql`mutation updateOrder($input: String!, $filter:String) {
+  updateOrder(input: $input, filter: $filter) {
+     ${documentFragment}
+  }
+}`
 export const defaultUpdateMutationConfig = {
-  _type: 'update', entity: 'mutateCustomers', query: mutationQuery, paramsToDoc: defaultParamsToDoc, refetchQueries: ['singleCustomer']
+  _type: 'update', entity: 'updateOrder', query: updateMutationQuery, paramsToDoc: defaultParamsToDoc, refetchQueries: ['singleCustomer', 'allOrder']
 }
 
 export const createMutationQuery = gql`mutation createOrder($input: String!) {
@@ -75,9 +79,8 @@ export const createMutationQuery = gql`mutation createOrder($input: String!) {
   }
 }`
 export const defaultCreateMutationConfig = {
-  _type: 'create', entity: 'createOrder', query: createMutationQuery, paramsToDoc: defaultParamsToDoc, refetchQueries:['allOrder']
+  _type: 'create', entity: 'createOrder', query: createMutationQuery, paramsToDoc: defaultParamsToDoc, refetchQueries: ['allOrder']
 }
-
 
 export const formConfig = {
   form: 'CustomerForm',
