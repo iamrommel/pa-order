@@ -9,7 +9,8 @@ import {
   contactTypeDef, ContactModel,
   imageTypeDef, ImageModel,
   userTypeDef, userQueryDef, userMutationTypeDef, userResolvers, UserModel,
-  tenantTypeDef, tenantQueryDef, tenantMutationDef, tenantResolvers, TenantModel
+  tenantTypeDef, tenantQueryDef, tenantMutationDef, tenantResolvers, TenantModel,
+  EntityMetaTypeDefs
 } from 'pcmli.umbrella.backend'
 
 //MOVE this common typeDef on umbrella.backend
@@ -28,12 +29,12 @@ type PageInfo {
   ...imageTypeDef,
   ...userTypeDef,
   ...tenantTypeDef,
-  ...syncInfoTypeDef
+  ...syncInfoTypeDef,
+  ...EntityMetaTypeDefs
 ]
 
 export const commonQueryDef = `
   pageInfo(filter: String, type: String!) : PageInfo
-  
   ${tenantQueryDef}
   ${userQueryDef}
 `
@@ -53,7 +54,6 @@ let commonResolvers = {
       return {count}
     }
   },
-
 }
 
 commonResolvers = _.merge({}, commonResolvers,

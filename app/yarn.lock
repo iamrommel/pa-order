@@ -2937,16 +2937,18 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-pcmli.umbrella.backend@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/pcmli.umbrella.backend/-/pcmli.umbrella.backend-1.0.2.tgz#3cb61288ca89d3d0b3349e24399df9f006b1e3c4"
+pcmli.umbrella.backend@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/pcmli.umbrella.backend/-/pcmli.umbrella.backend-2.0.1.tgz#f84465b7b6d84b583c73a2385d2419061c3e60bc"
   dependencies:
     "@google/maps" "^0.4.3"
     bluebird "^3.4.7"
     cloudinary "^1.7.0"
     deep-diff "0.3.4"
+    graphql-date "^1.0.3"
     lodash "^4.17.4"
     moment "^2.18.1"
+    mongoose "4.10.7"
     numeral "^2.0.6"
     pcmli.umbrella.uni-core "^0.1.7"
 
