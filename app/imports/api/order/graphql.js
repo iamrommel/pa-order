@@ -40,13 +40,13 @@ const mutation = `
 const resolvers = {
   Mutation: {
     async [`create_details`] (root, args, context) {
-      return await controller.create_details(args)
+      return await controller.detailController.create(args)
     },
     async [`delete_details`] (root, args, context) {
-      return await controller.delete_details(args)
+      return await controller.detailController.delete(args)
     },
     async [`update_details`] (root, args, context) {
-      return await controller.update_details(args)
+      return await controller.detailController.update(args)
     },
   }
 }
