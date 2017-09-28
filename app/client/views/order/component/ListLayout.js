@@ -8,7 +8,7 @@ export class ListLayout extends React.Component {
 
   constructor (props) {
     super(props)
-
+    this.state = {sortObject: {sort: {timeStamp: -1}}}
   }
 
   handleSearch = ({searchString}) => {
@@ -37,18 +37,16 @@ export class ListLayout extends React.Component {
     )
 
     const sortFields = [
+      {name: 'timeStamp'},
       {name: 'code'},
       {name: 'status'},
       {name: 'netAmount'},
-      {name: 'timeStamp'},
       {name: 'remarks'},
-
     ]
 
     const searchFields = [
       {name: 'code'},
       {name: 'status'},
-      {name: 'timeStamp'},
       {name: 'remarks'},
       {name: 'tags', type: 'Array'},
     ]

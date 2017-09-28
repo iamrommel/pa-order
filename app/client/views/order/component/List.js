@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Utils } from 'pcmli.umbrella.uni-core'
 import { Label, Table, Tags } from 'pcmli.umbrella.web-ui'
-import Core from 'pcmli.umbrella.core'
+import { withList } from 'pcmli.umbrella.core'
 
 import { listQueryConfig } from '../../../services/order'
 import { routesDef } from '../../../../imports/startup/client/config/routes'
@@ -13,7 +13,7 @@ let TableRow = (props) => {
   let {_id, code, status, timeStamp, netAmount, details, tags, remarks} = props || {}
 
   //take only 2 tags
-  tags = tags && tags.slice(0, 2)
+  tags = tags && tags.slice(0, 3)
 
   return (
     <tr>
@@ -32,17 +32,32 @@ let TableRow = (props) => {
         <OrderStatusLabel status={status}/>
       </td>
       <td>
-        <p>
-          <Label type="default"><strong>{details.length || 0}</strong></Label> items
-        </p>
+        <Label type="default"><strong>{details.length || 0}</strong></Label> item(s)
       </td>
-
       <td>
         <Tags dataArray={tags}/>
-        <br/>
-        <small className="font-italic">{remarks}</small>
+      </td>
+      <td style={{width: '10%'}}>
+        <small className="font-italic text-warning">{remarks}</small>
       </td>
     </tr>
+  )
+}
+
+const headerRow = () => {
+
+  return (
+    <thead className="bg-gray">
+    <tr>
+      <th>#</th>
+      <th>Net Amount</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th>Items Count</th>
+      <th>Tags</th>
+      <th>Remarks</th>
+    </tr>
+    </thead>
   )
 }
 
@@ -55,8 +70,8 @@ let List = ({loadMoreEntries, items, searchString, sortObject, pageInfo, loading
   }
 
   let result = (
-
     <Table
+      head={headerRow()}
       dataArray={items}
       createRow={createRow}
       stats="orders"
@@ -72,6 +87,6 @@ let List = ({loadMoreEntries, items, searchString, sortObject, pageInfo, loading
   return result
 }
 
-List = Core.withList(listQueryConfig())(List)
+List = withList(listQueryConfig())(List)
 export { List }
 
