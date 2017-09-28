@@ -38,27 +38,25 @@ export class ListLayout extends React.Component {
     )
 
     const sortFields = [
-      {name: 'name'},
       {name: 'code'},
-      {name: 'contact.address1.fullAddress', displayName: 'Address'},
       {name: 'status'},
-      {name: 'type'},
+      {name: 'netAmount'},
+      {name: 'timeStamp'},
       {name: 'remarks'},
+
     ]
 
     const searchFields = [
       {name: 'code'},
-      {name: 'name'},
-      {name: 'summary'},
-      {name: 'contact.address1.fullAddress'},
-      {name: 'contact.email'},
+      {name: 'status'},
+      {name: 'timeStamp'},
       {name: 'remarks'},
       {name: 'tags', type: 'Array'},
     ]
 
     return (
       <WebUi.Ibox>
-        <WebUi.IboxHeader title="Customers">
+        <WebUi.IboxHeader title="Orders">
           <WebUi.IboxTools>
             <WebUi.IboxToolCommonControl
               addComponent={addComponent}
