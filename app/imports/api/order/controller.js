@@ -2,8 +2,9 @@ import { Utils } from 'pcmli.umbrella.core'
 import { BaseController, BaseSubController } from 'pcmli.umbrella.backend'
 import { Schema } from 'mongoose'
 import { ProductSchema } from '../product'
+import {OrderStatusEnum} from './helper'
 
-const OrderStatusEnum = ['NEW', 'PROCESSING', 'PAID']
+
 const modelName = 'Order'
 
 const OrderDetailSchema = new Schema({
@@ -20,8 +21,8 @@ export const OrderSchema = new Schema({
   },
   status: {
     type: String,
-    enum: OrderStatusEnum,
-    default: OrderStatusEnum[0]
+    enum: Object.values(OrderStatusEnum),
+    default: OrderStatusEnum.new
   },
   timeStamp: {
     type: Date,

@@ -1,15 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import  WebUi from 'pcmli.umbrella.web-ui'
-import  Core from 'pcmli.umbrella.core'
+import { Utils } from 'pcmli.umbrella.uni-core'
+import { Label } from 'pcmli.umbrella.web-ui'
+import WebUi from 'pcmli.umbrella.web-ui'
+import Core from 'pcmli.umbrella.core'
 
 import { listQueryConfig } from '../../../services/order'
 import { routesDef } from '../../../../startup/client/config/routes'
 import { CustomerDisplay } from '../../../components'
+import { OrderStatusLabel } from './OrderStatusLabel'
 
 let TableRow = (props) => {
 
-  let {_id, code, type, tags, remarks} = props || {}
+  let {_id, code, status, timeStamp, netAmount, details, tags, remarks} = props || {}
 
   //take only 2 tags
   tags = tags && tags.slice(0, 2)
@@ -21,12 +24,15 @@ let TableRow = (props) => {
         <Link to={`${routesDef.CustomersDetailPage.altPath}${_id}/${code}`}><h3>#{code}</h3></Link>
       </td>
       <td>
+        {Utils.formatDateTime(timeStamp)}
+      </td>
+      <td>
         <CustomerDisplay value={props}/>
       </td>
-      <td >
-        <WebUi.Label type="success">{type}</WebUi.Label>
+      <td>
+        <OrderStatusLabel status={status}/>
       </td>
-      <td >
+      <td>
         <WebUi.Tags dataArray={tags}/>
       </td>
       <td style={{width: '15%'}}>
