@@ -44,15 +44,15 @@ const documentFragment = `   _id
 export const documentQueryConfig = () => {
 
   //region GraphQL query
-  const query = gql`query singleCustomer($filter: String, $options: String) {
-  allCustomers(filter: $filter, options: $options) {
+  const query = gql`query singleOrder($filter: String, $options: String) {
+  allOrder(filter: $filter, options: $options) {
     ${documentFragment}
   }
 }
 `
 //endregion
 
-  return {query, entity: 'allCustomers'}
+  return {query, entity: 'allOrder'}
 }
 
 //region mutation query
@@ -75,7 +75,7 @@ export const createMutationQuery = gql`mutation createOrder($input: String!) {
   }
 }`
 export const defaultCreateMutationConfig = {
-  _type: 'create', entity: 'createOrder', query: createMutationQuery, paramsToDoc: defaultParamsToDoc
+  _type: 'create', entity: 'createOrder', query: createMutationQuery, paramsToDoc: defaultParamsToDoc, refetchQueries:['allOrder']
 }
 
 

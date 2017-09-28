@@ -9,11 +9,11 @@ import { DetailLayoutBody } from './DetailLayoutBody'
 import { RemarksManager, TagsManager, LogoManager } from '../../../components'
 import { StatusButton } from './StatusButton'
 
-const RightDetailSection = ({data}) => {
+const RightDetailSection = ({document}) => {
   return (
     <div className="row">
-      <DetailLayoutHeader data={data}/>
-      <DetailLayoutBody data={data}/>
+      <DetailLayoutHeader document={document}/>
+      <DetailLayoutBody document={document}/>
     </div>
   )
 }
@@ -26,8 +26,8 @@ class LeftDetailSection extends React.Component {
   }
 
   render () {
-    const {data} = this.props
-    let {logo, remarks, tags, _id} = data || {}
+    const {document} = this.props
+    let {logo, remarks, tags, _id} = document || {}
 
     return (
       <div>
@@ -44,7 +44,7 @@ class LeftDetailSection extends React.Component {
         </Ibox>
         <Ibox>
           <IboxContent>
-            <StatusButton customer={data}/>
+            <StatusButton customer={document}/>
           </IboxContent>
         </Ibox>
       </div>
@@ -52,14 +52,14 @@ class LeftDetailSection extends React.Component {
   }
 }
 
-let DetailLayout = ({item}) => {
+let DetailLayout = ({item: document}) => {
   return (
     <Row>
       <Col md={4} lg={3}>
-        <LeftDetailSection data={item}/>
+        <LeftDetailSection document={document}/>
       </Col>
       <Col md={8} lg={9}>
-        <RightDetailSection data={item}/>
+        <RightDetailSection document={document}/>
       </Col>
     </Row>
   )

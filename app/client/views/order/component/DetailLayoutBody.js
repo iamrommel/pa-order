@@ -5,8 +5,7 @@ import { Ibox, IboxContent } from 'pcmli.umbrella.web-ui'
 import { ProfileFormPanel } from './ProfileFormPanel'
 import { ContactFormPanel } from './ContactFormPanel'
 
-import { ActivityDisplay, TotalMilkIntegration } from '../../../components'
-import { defaultUpdateMutationConfig } from '../../../services/order'
+import { ActivityDisplay } from '../../../components'
 
 export const DetailLayoutBody = ({data}) => {
 
@@ -18,9 +17,6 @@ export const DetailLayoutBody = ({data}) => {
       </Tab>
       <Tab eventKey={3} title="Contacts">
         <ContactFormPanel initialValues={data} title="Contact Information"/>
-      </Tab>
-      <Tab eventKey={4} title="Integrations">
-        <TotalMilkIntegration initialValues={data} mutationConfig={defaultUpdateMutationConfig}/>
       </Tab>
     </Tabs>
   )
