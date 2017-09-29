@@ -36,13 +36,12 @@ export const OrderSchema = new Schema({
 })
 OrderSchema.plugin(autoIncrement.plugin, {model: modelName, field: 'orderNumber'})
 
-OrderSchema.pre('save', (next) => {
-
+OrderSchema.pre('save', function (next) {
   //if undefine, empty, or null or auto, create the padded code
-  if (this.code === '[auto]' || !this.code) {
-
+  if ((this.code === '[auto]' || !this.code ) && this.isNew) {
+    this.code = `${this.orderNumber}`
   }
-
+  next()
 })
 
 export class OrderController extends BaseController {
