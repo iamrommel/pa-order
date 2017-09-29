@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 import './config/graphql'
 import './config/routes'
-//import './config/mongoose'
 import './config/cloudinary'
 import './config/accounts-base'
 import './config/accountsMeld'
@@ -14,6 +13,8 @@ Meteor.publish(null, function () {
 })
 
 Meteor.startup(() => {
+
   //do the migration
   Migrations.migrateTo('latest')
 })
+

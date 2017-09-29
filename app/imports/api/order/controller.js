@@ -1,24 +1,22 @@
-import { Utils } from 'pcmli.umbrella.core'
-import { BaseController, BaseSubController } from 'pcmli.umbrella.backend'
+import { Utils } from 'pcmli.umbrella.uni-core'
+import { BaseController, BaseSubController, defaultConnection } from 'pcmli.umbrella.backend'
 import { Schema } from 'mongoose'
-import { ProductSchema } from '../product'
-import {OrderStatusEnum} from './helper'
+import autoIncrement from 'mongoose-auto-increment'
 
+import { ProductSchema } from '../product'
+import { OrderStatusEnum } from './helper'
+
+autoIncrement.initialize(defaultConnection(Meteor.settings))
 
 const modelName = 'Order'
-
 const OrderDetailSchema = new Schema({
   product: ProductSchema,
   quantity: Number,
   price: Number,
   total: Number
 })
-
 export const OrderSchema = new Schema({
-  code: {
-    type: String,
-    default: () => Utils.generateId(6)
-  },
+  code: String,
   status: {
     type: String,
     enum: Object.values(OrderStatusEnum),
@@ -36,11 +34,22 @@ export const OrderSchema = new Schema({
   preparedBy: String,
   details: [OrderDetailSchema]
 })
+OrderSchema.plugin(autoIncrement.plugin, {model: modelName, field: 'orderNumber'})
+
+OrderSchema.pre('save', (next) => {
+
+  //if undefine, empty, or null or auto, create the padded code
+  if (this.code === '[auto]' || !this.code) {
+
+  }
+
+})
 
 export class OrderController extends BaseController {
   constructor () {
-    super({modelName, schema: OrderSchema, appSettings: Meteor.settings})
-    this.detailsController = new BaseSubController({model: this.model, childName: 'details'})
-
+    super({modelName, schema: OrderSchema, appSettings: Meteor.settings, children: ['details']})
   }
 }
+
+
+
