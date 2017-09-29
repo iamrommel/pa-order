@@ -4,10 +4,10 @@
     "GOOGLE_API_KEY": "AIzaSyBSQUglF-FLjzkj3YJ49dplKioerln1VeM"
 
   },
-  "MONGO_URL": "mongodb://admin:Abc12345#@ds127439.mlab.com:27439/tmms_hauler",
+  "MONGO_URL": "mongodb://admin:Abc12345#@ds127439.mlab.com:27439/pa-order",
   "galaxy.meteor.com": {
     "env": {
-      "MONGO_URL": "mongodb://admin:Abc12345#@ds127439.mlab.com:27439/tmms_hauler"
+      "MONGO_URL": "mongodb://admin:Abc12345#@ds127439.mlab.com:27439/pa-order"
     }
   }
 }
