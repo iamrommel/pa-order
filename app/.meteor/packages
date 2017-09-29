@@ -4,9 +4,9 @@ ecmascript@0.8.2
 shell-server@0.2.4
 blaze-html-templates
 tracker@1.1.3
-webapp@1.3.18
-standard-minifier-css@1.3.4
-accounts-base@1.3.2
+webapp@1.3.19
+standard-minifier-css@1.3.5
+accounts-base@1.3.3
 accounts-facebook@1.2.1
 accounts-google@1.2.0
 accounts-ui@1.1.9
@@ -14,9 +14,9 @@ coffeescript
 react-meteor-data
 splendido:accounts-meld
 alanning:roles
-dynamic-import@0.1.1
+dynamic-import@0.1.3
 apollo
 babel-runtime@1.0.1
 practicalmeteor:mocha
 percolate:migrations
-service-configuration
+service-configuration@1.0.11
